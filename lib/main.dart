@@ -146,9 +146,8 @@ Future<void> enableBackgroundService() async {
 
 @pragma('vm:entry-point')
 onStart(ServiceInstance serviceInstance) {
-  int count = 0;
+
     Timer.periodic(const Duration(seconds: 1), (timer) async {
-      count++;
       final data = await _determinePosition();
       List<String> localData = [];
       localData.add("${DateTime.now()}");
@@ -165,9 +164,8 @@ onStart(ServiceInstance serviceInstance) {
 
 @pragma('vm:entry-point')
 bool onBackground(ServiceInstance serviceInstance) {
-  int count = 0;
+
   Timer.periodic(const Duration(seconds: 1), (timer) async {
-    count++;
     final data = await _determinePosition();
     List<String> localData = [];
     localData.add("${DateTime.now()}");
